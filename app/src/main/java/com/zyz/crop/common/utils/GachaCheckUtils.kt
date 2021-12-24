@@ -15,7 +15,7 @@ object GachaCheckUtils {
     val TAG = "GachaCheckUtils"
 
     public fun checkStoragePermission(context: Context, success: (() -> Unit)?, failed: (() -> Unit)? = null) {
-        if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.R) {
             PermissionUtils.requestPermission(context, Action<List<String>> {
                 success?.invoke()
             }, Action<List<String>> {
@@ -37,7 +37,7 @@ object GachaCheckUtils {
     }
 
     fun checkCameraStoragePermission(context: Context, success: (() -> Unit)?, failed: (() -> Unit)? = null){
-        if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.R) {
             PermissionUtils.requestPermission(context, Action<List<String>> {
                 success?.invoke()
             }, Action<List<String>> {

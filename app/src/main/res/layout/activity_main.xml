@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="12dp"
-        android:onClick="goTakePicture"
+        android:layout_marginTop="12dp"
+        android:onClick="goTakePictureClick"
         android:text="拍照"/>
 
     <Button
@@ -19,8 +19,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="selectPhoto"
+        android:onClick="selectPhotoClick"
         android:text="选择图片"/>
+
+    <Button
+        android:id="@+id/btn_select_album_photo_crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onSelectCropImageClick"
+        android:text="crop 选择图片"/>
 
     <ImageView
         android:id="@+id/quick_start_cropped_image"

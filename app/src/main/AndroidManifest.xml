@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"/>
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            />
 
         <provider
             android:name="com.zyz.crop.common.provider.MyCropperFileProvider"
