@@ -34,6 +34,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api "androidx.appcompat:appcompat:$androidXLibraryVersion"
     api project(":cropper")
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
     api 'com.yanzhenjie:permission:2.0.0-rc8'
 }

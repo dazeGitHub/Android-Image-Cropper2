@@ -132,12 +132,13 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
         } else {
             val outputUri = outputUri
             mCropImageView?.saveCroppedImageAsync(
-                    outputUri,
-                    mOptions!!.outputCompressFormat,
-                    mOptions!!.outputCompressQuality,
-                    mOptions!!.outputRequestWidth,
-                    mOptions!!.outputRequestHeight,
-                    mOptions!!.outputRequestSizeOptions)
+                outputUri,
+                mOptions!!.outputCompressFormat,
+                mOptions!!.outputCompressQuality,
+                mOptions!!.outputRequestWidth,
+                mOptions!!.outputRequestHeight,
+                mOptions!!.outputRequestSizeOptions
+            )
         }
     }
 
@@ -162,14 +163,15 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
     /** Get intent instance to be used for the result of this activity.  */
     private fun getResultIntent(uri: Uri?, error: Exception?, sampleSize: Int): Intent {
         val result = CropImage.ActivityResult(
-                mCropImageView?.imageUri,
-                uri,
-                error,
-                mCropImageView?.cropPoints,
-                mCropImageView?.cropRect,
-                mCropImageView?.rotatedDegrees ?: 0,
-                mCropImageView?.wholeImageRect,
-                sampleSize)
+            mCropImageView?.imageUri,
+            uri,
+            error,
+            mCropImageView?.cropPoints,
+            mCropImageView?.cropRect,
+            mCropImageView?.rotatedDegrees ?: 0,
+            mCropImageView?.wholeImageRect,
+            sampleSize
+        )
         val intent = Intent()
         intent.putExtras(getIntent())
         intent.putExtra(CropImage.CROP_IMAGE_EXTRA_RESULT, result)
@@ -178,18 +180,20 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
 
     //resultCode : RESULT_OK、RESULT_CANCELED、CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE
     companion object {
-        fun startActivity(context: Activity,
-                          existImgFilePath: String,
-                          requestCode: Int,
-                          cropImageOptions: CropImageOptions? = null) {
+        fun startActivity(
+            context: Activity,
+            existImgFilePath: String,
+            requestCode: Int,
+            cropImageOptions: CropImageOptions? = null
+        ) {
             cropImageOptions?.validate()
             context.startActivityForResult(Intent(context, CropImageActivity2::class.java).apply {
                 this.putExtra(CropImage.CROP_IMAGE_EXTRA_BUNDLE, Bundle().apply {
                     this.putString(CropImage.CROP_IMAGE_EXTRA_SOURCE, existImgFilePath)
                     this.putParcelable(CropImage.CROP_IMAGE_EXTRA_OPTIONS,
-                            cropImageOptions ?: CropImageOptions().apply {
-                                this.guidelines = CropImageView.Guidelines.ON
-                            })
+                        cropImageOptions ?: CropImageOptions().apply {
+                            this.guidelines = CropImageView.Guidelines.ON
+                        })
                 })
             }, requestCode)
         }
