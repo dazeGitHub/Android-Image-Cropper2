@@ -1,0 +1,3 @@
+include ':cropper'
+include ':app'
+rootProject.name = "Android-Image-Cropper2"
