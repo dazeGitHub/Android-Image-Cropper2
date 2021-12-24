@@ -1,13 +1,13 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'maven'
-    id 'maven-publish'
-    id 'kotlin-kapt'
-    id 'kotlin-android-extensions'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+//启用 Jitpack 插件
+apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.dazeGitHub'
+//设置Jitpack发布的Group
+//我的github账号是helen-x, 对应我的group就是com.github.helen-x
+group='com.github.dazeGitHub'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
