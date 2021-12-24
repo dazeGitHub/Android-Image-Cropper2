@@ -9,6 +9,8 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.theartofdev.edmodo.cropper.CropImageView.*
 import kotlinx.android.synthetic.main.activity_crop_image2.*
@@ -47,6 +49,12 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
     @SuppressLint("NewApi")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //去除标题栏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //去除状态栏
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_crop_image2)
         initBundle()
         initClickListener()
