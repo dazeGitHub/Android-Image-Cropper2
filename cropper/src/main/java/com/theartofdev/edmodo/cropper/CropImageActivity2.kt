@@ -51,8 +51,8 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
 
         //去除标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //去除状态栏
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        //去除状态栏
+//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_crop_image2)
         initBundle()

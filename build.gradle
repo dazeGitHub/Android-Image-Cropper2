@@ -34,6 +34,6 @@ ext {
     targetSdkVersion = 30
     androidXLibraryVersion = '1.0.0'
 
-    PUBLISH_VERSION = '3.0.6'
+    PUBLISH_VERSION = '3.0.7'
     // gradlew clean build generateRelease
 }

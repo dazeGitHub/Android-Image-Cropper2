@@ -4,19 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <include
-       android:id="@+id/include_title"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toTopOf="parent"
-       layout="@layout/layout_crop_title"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/con_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/include_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            layout="@layout/layout_crop_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.theartofdev.edmodo.cropper.CropImageView
         android:id="@+id/cropImageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/black2"
-        app:layout_constraintTop_toBottomOf="@id/include_title"
+        app:layout_constraintTop_toBottomOf="@id/con_title"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
