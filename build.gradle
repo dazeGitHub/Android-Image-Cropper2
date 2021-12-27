@@ -31,9 +31,9 @@ ext {
     compileSdkVersion = 30
     buildToolsVersion = '30.0.3'
     minSdkVersion = 19
-    targetSdkVersion = 28
+    targetSdkVersion = 30
     androidXLibraryVersion = '1.0.0'
 
-    PUBLISH_VERSION = '3.0.5'
+    PUBLISH_VERSION = '3.0.6'
     // gradlew clean build generateRelease
 }

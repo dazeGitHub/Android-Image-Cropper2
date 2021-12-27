@@ -36,9 +36,8 @@ open class CropImageActivity2 : AppCompatActivity(), OnSetImageUriCompleteListen
             var outputUri = mOptions!!.outputUri
             if (outputUri == null || outputUri == Uri.EMPTY) {
                 outputUri = try {
-//                    val ext = if (mOptions!!.outputCompressFormat == Bitmap.CompressFormat.JPEG) ".jpg" else if (mOptions!!.outputCompressFormat == Bitmap.CompressFormat.PNG) ".png" else ".webp"
-//                    Uri.fromFile(File.createTempFile("cropped", ext, cacheDir))
-                    Uri.fromFile(File(mImgPathStr))
+                    val ext = if (mOptions!!.outputCompressFormat == Bitmap.CompressFormat.JPEG) ".jpg" else if (mOptions!!.outputCompressFormat == Bitmap.CompressFormat.PNG) ".png" else ".webp"
+                    Uri.fromFile(File.createTempFile("cropped", ext, cacheDir))
                 } catch (e: IOException) {
                     throw RuntimeException("Failed to create temp file for output image", e)
                 }

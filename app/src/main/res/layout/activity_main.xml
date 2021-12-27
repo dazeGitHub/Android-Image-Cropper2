@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
-        android:onClick="goTakePictureClick"
         android:text="拍照"/>
 
     <Button
@@ -29,6 +28,14 @@
         android:layout_gravity="center"
         android:onClick="onSelectCropImageClick"
         android:text="crop 选择图片"/>
+
+    <Button
+        android:id="@+id/btn_select_photo_crop_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onSelectCropImagePathClick"
+        android:text="直接传路径选择图片再裁剪"/>
 
     <ImageView
         android:id="@+id/quick_start_cropped_image"

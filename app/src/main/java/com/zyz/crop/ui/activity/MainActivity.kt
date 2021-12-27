@@ -13,6 +13,7 @@ import com.theartofdev.edmodo.cropper.CropImageActivity2
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zyz.crop.common.utils.GachaCheckUtils
 import com.zyz.crop.common.utils.ImageUtil
+import kotlinx.android.synthetic.main.activity_main.*
 import me.iwf.photopicker.PhotoPicker
 
 class MainActivity : AppCompatActivity() {
@@ -23,12 +24,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btn_take_picture.setOnClickListener{
+            goTakePictureClick()
+        }
+        btn_select_album_photo.setOnClickListener{
+            selectPhotoClick()
+        }
+        btn_select_album_photo_crop.setOnClickListener{
+            onSelectCropImageClick()
+        }
+        btn_select_photo_crop_path.setOnClickListener{
+            onSelectCropImagePathClick()
+        }
     }
 
     /**
      * 拍照
      */
-    fun goTakePictureClick(view: View?) {
+    fun goTakePictureClick() {
 //        CropImage.activity(null).setGuidelines(CropImageView.Guidelines.ON).start(this);
         GachaCheckUtils.checkCameraStoragePermission(this, success = {
             ImageUtil.openCamera(this, REQUEST_CODE_TAKE_PICTURE) {
@@ -39,9 +53,10 @@ class MainActivity : AppCompatActivity() {
 
     /**
      * 选择图片
+     * demo 中鸿蒙手机选择的图片加载不了, 但是项目可以？
      */
-    fun selectPhotoClick(view: View?) {
-        GachaCheckUtils.checkStoragePermission(this, success = {
+    fun selectPhotoClick() {
+        GachaCheckUtils.checkCameraStoragePermission(this, success = {
             PhotoPicker.builder()
                     .setPhotoCount(1)
                     .setShowCamera(true)
@@ -55,8 +70,18 @@ class MainActivity : AppCompatActivity() {
     /**
      * 拍照/选择图片使用 Crop
      */
-    fun onSelectCropImageClick(view: View?) {
+    fun onSelectCropImageClick() {
         CropImage.activity(null).setGuidelines(CropImageView.Guidelines.ON).start(this)
+    }
+
+    /**
+     * 直接传路径选择图片再裁剪
+     */
+    fun onSelectCropImagePathClick(){
+        val photoPath = "/storage/emulated/0/Pictures/1591843653688.jpg"
+        mCurTakePicPath = photoPath
+        Log.e("TAG", "选择图片成功, 开始裁剪 photoPath = $photoPath")
+        CropImageActivity2.startActivity(this, photoPath, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
